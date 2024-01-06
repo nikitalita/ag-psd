@@ -120,6 +120,7 @@ addHandler(
 		if (text.EngineData) {
 			const engineData = parseEngineData(text.EngineData);
 			const textData = decodeEngineData(engineData);
+			target.engineData = fromByteArray(text.EngineData);
 
 			// require('fs').writeFileSync(`layer-${target.name}.txt`, require('util').inspect(engineData, false, 99, false), 'utf8');
 			// const before = parseEngineData(text.EngineData);
@@ -4549,8 +4550,8 @@ addHandler(
 		target.engineData = fromByteArray(data);
 		// const engineData = parseEngineData(data);
 		// console.log(require('util').inspect(engineData, false, 99, true));
-		// require('fs').writeFileSync('resources/engineData2Simple.txt', require('util').inspect(engineData, false, 99, false), 'utf8');
-		// require('fs').writeFileSync('test_data.json', JSON.stringify(ed, null, 2), 'utf8');
+		// require('fs').writeFileSync("engineData2Simple_"+ target.name + ".txt", require('util').inspect(engineData, false, 99, false), 'utf8');
+		// require('fs').writeFileSync('test_data'+ target.name + '.json', JSON.stringify(engineData, null, 2), 'utf8');
 	},
 	(writer, target) => {
 		const buffer = toByteArray(target.engineData!);
